@@ -7,11 +7,17 @@ package hello;
  */
 
 
+import DAO.ArtigoJpaDAO;
+import DAO.AutorJpaDAO;
+import DAO.VolumeJpaDAO;
 import java.beans.*;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import modelo.Artigo;
+import modelo.Autor;
+import modelo.Volume;
 
 /**
  *
@@ -46,6 +52,7 @@ public class MessageBean implements Serializable {
     }
 
     public MessageBean() {
+
     }
     
     public String getMsg() {  
@@ -57,6 +64,27 @@ public class MessageBean implements Serializable {
     }
     
     public String getByeMsg() {
+                Volume volume = new Volume("SIGLA", 123, "Curitiba", "2021-02-20", "", "");
+        VolumeJpaDAO.getInstance().persist(volume);
+        Volume volume2 = new Volume("SIGLA", 123, "Curitiba", "2021-02-20", "", "");
+        VolumeJpaDAO.getInstance().persist(volume2);
+
+        Artigo artigo = new Artigo(0, Artigo.SiglaIdioma.pt, "titulo", "title", "resumo", "overview", "palavras;chave", "key;words", 10);
+        artigo.setVolume(volume);
+        ArtigoJpaDAO.getInstance().persist(artigo);
+
+        Autor autor = new Autor();
+        autor.setOrdemArtigo(0);
+        autor.setEmail("mackson.mattos@gmail.com");
+        autor.setPrimeiroNome("mackson");
+        autor.setNomeDoMeio("mattos");
+        autor.setSobrenome("mattos");
+        autor.setAfiliacao("123");
+        autor.setAfiliacaoIngles("123");
+        autor.setPaisOrigem(Autor.SiglaPaisOrigem.BR);
+        autor.setRegistroORCID("1111-1111-1111-1111");
+        autor.setArtigo(artigo);
+        AutorJpaDAO.getInstance().persist(autor);
         return byeMsg;
     }
     

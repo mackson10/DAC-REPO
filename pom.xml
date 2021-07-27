@@ -7,7 +7,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>MavenWebProject</name>
+    <name>DAC-REPO</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -26,6 +26,31 @@
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
             <version>1.2.6</version>
         </dependency>
+        
+        
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+ 
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.2.8.Final</version>
+        </dependency>
+ 
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.25</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->  
+        <dependency>  
+            <groupId>log4j</groupId>  
+            <artifactId>log4j</artifactId>  
+            <version>1.2.17</version>  
+        </dependency>  
     </dependencies>
 
     <build>
